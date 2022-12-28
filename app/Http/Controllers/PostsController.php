@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -43,20 +45,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return
      */
-    public function show($post)
+    public function show($slug)
     {
-            $posts = [
-                'my-first-post' => "Hello this is my first blog post!!",
-                'my-second-post' => "Now I am getting the hang of this bloggin thing."
-            ];
+//        $post = DB::table('posts')->where('slug',$slug)->first();
 
-            if(! array_key_exists($post, $posts)) {
-                abort(404, 'Sorry, that post was not found.');
-            }
-
-            return view('post',[
-                'post' => $posts[$post]
-            ]);
+        return view('post',[
+            'post' => Post::where('slug',$slug)->firstOrFail()
+        ]);
     }
 
     /**
