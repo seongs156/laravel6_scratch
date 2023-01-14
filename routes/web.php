@@ -10,38 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-//Route::get('/', function() {
-//    return view('test',[
-//        'name' => request('name'),
-//    ]);
-//});
-
-//
-//
-Route::get('posts/{post}', 'PostsController@show');
 
 
-//use App\Http\Controllers\NotificationController;
+Route::get('articles', 'ArticlesController@index');
+Route::get('articles/{article}', 'ArticlesController@show');
 
-//Route::get('/', function() {
-//    $view = view('welcome');
-//
-//    // Dispatcher 클래스를 경우해 Event 실행
-//
-//    \Event::dispatch(new \App\Events\PublishProcessor(15));
-//
-//    return $view;
-//
-////    return view('test',[
-////        'name' => request('name'),
-////    ]);
-//});
+// GET /articles
+// GET /articles/:id
+// POST /articles
+// PUT /articles/:id/update
+// DELETE /articles/:id/
 
 
-Route::get('/send-notification', 'NotificationController@sendOfferNotification');
-Route::get('/receive-notification', 'NotificationController@receiveOfferNotification');
 
-//Route::get('/send-notification', function() {
-//    echo 'hie';
-//});
+// GET /videos
+// GET /videos/create
+// POST /videos
+// GET /videos/2
+// GET /videos/2/edit
+// PUT /videos/2
+// DELETE /videos/2
+
